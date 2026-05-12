@@ -1,0 +1,188 @@
+    <style>
+    /* --- FORM MODAL (Sistem Pesan Sesi) --- */
+        .modal {
+            display: none; position: fixed; z-index: 2000; left: 0; top: 0;
+            width: 100%; height: 100%; background-color: rgba(0,0,0,0.6);
+        }
+        .modal-content {
+            background-color: white; margin: 5% auto; padding: 30px;
+            border-radius: 15px; width: 500px; max-width: 90%;
+        }
+        .modal-content h2 { color: #0056b3; margin-bottom: 20px; }
+        .form-group { margin-bottom: 15px; text-align: left; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: bold; font-size: 14px; }
+        .form-group input, .form-group textarea {
+            width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;
+        }
+        .btn-submit {
+            background: #28a745; color: white; border: none; padding: 12px;
+            width: 100%; border-radius: 5px; font-weight: bold; cursor: pointer; margin-top: 10px;
+        }
+        .close { float: right; font-size: 28px; font-weight: bold; cursor: pointer; }
+
+        :root { --primary: #0056b3; --secondary: #ffa500; --bg: #f4f7fe; }
+        * { box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background: var(--bg); padding: 40px 5%; }
+        .container { max-width: 900px; margin: auto; background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        h1, h2 { color: var(--primary); margin-bottom: 20px; }
+        .section { margin-bottom: 40px; border-bottom: 1px solid #eee; padding-bottom: 20px; }
+        
+        /* Grid Layouts */
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+        /* Form Styling */
+        label { display: block; margin-bottom: 8px; font-weight: 600; }
+        input, select, textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 15px; }
+
+        /* Time & Package Slots */
+        .slot, .package { border: 2px solid #ddd; padding: 15px; border-radius: 10px; cursor: pointer; text-align: center; transition: 0.3s; }
+        .slot:hover, .package:hover { border-color: var(--primary); background: #eef6ff; }
+        input[type="radio"] { display: none; }
+        input[type="radio"]:checked + .card-ui { border-color: var(--primary); background: #eef6ff; font-weight: bold; }
+        .card-ui { border: 2px solid #ddd; padding: 15px; border-radius: 10px; display: block; height: 100%; }
+
+        /* Mentor Cards */
+        .mentor-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
+        .mentor-card { font-size: 13px; }
+        .mentor-card img { width: 100%; height: 120px; object-fit: cover; border-radius: 8px; }
+
+        .btn-pay { background: #28a745; color: white; border: none; padding: 20px; width: 100%; border-radius: 10px; font-size: 18px; font-weight: bold; cursor: pointer; }
+        .btn-pay:hover { background: #218838; }
+</style>
+
+<div class="container">
+    <h1 id="headline">Registrasi Program</h1>
+
+    <form id="masterForm">
+        <!-- 1. BIODATA -->
+        <div class="section">
+            <h2>1. Biodata Peserta</h2>
+            <div class="grid-2">
+                <div>
+                    <label>Nama Lengkap</label>
+                    <input type="text" required placeholder="Nama sesuai ID">
+                </div>
+                <div>
+                    <label>Email</label>
+                    <input type="email" required placeholder="asep@gmail.com">
+                </div>
+            </div>
+            <div class="grid-2">
+                <div>
+                    <label>Nomor Telepon</label>
+                    <input type="tel" required placeholder="0812xxxx">
+                </div>
+                <div>
+                    <label>Tanggal Lahir</label>
+                    <input type="date" required>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. JADWAL -->
+        <div class="section">
+            <h2>2. Pilih Hari & Waktu Sesi</h2>
+            <label>Pilih Hari:</label>
+            <select required id="daySelect">
+                <option value="">-- Pilih Hari --</option>
+                <option>Monday</option><option>Tuesday</option><option>Wednesday</option>
+                <option>Thursday</option><option>Friday</option><option>Saturday</option><option>Sunday</option>
+            </select>
+            
+            <div id="timeContainer" style="display:none; margin-top: 20px;">
+                <label>Pilih Jam:</label>
+                <div class="grid-3">
+                    <label><input type="radio" name="time" value="Morning" required><div class="card-ui">Morning<br><small>08:00 - 11:00</small></div></label>
+                    <label><input type="radio" name="time" value="Evening"><div class="card-ui">Evening<br><small>12:00 - 17:00</small></div></label>
+                    <label><input type="radio" name="time" value="Afternoon"><div class="card-ui">Afternoon<br><small>18:00 - 22:00</small></div></label>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. MENTOR -->
+        <div class="section">
+            <h2>3. Pilih Mentor</h2>
+            <label>Kriteria Mentor Khusus (Opsional):</label>
+            <textarea placeholder="Contoh: Saya ingin mentor yang sangat santai..."></textarea>
+            
+            <p style="margin: 15px 0;">Atau pilih mentor favorit kami:</p>
+            <div class="mentor-grid">
+                <!-- Cowo 1 -->
+                <label><input type="radio" name="mentor" value="Budi"><div class="card-ui mentor-card">
+                    <img src="Andika.jpg" alt="Mentor">
+                    <strong>Andika Mahesa</strong><br>
+                    <small>Beasiswa LPDP, S2 Jerman.</small>
+                </div></label>
+                <!-- Cewe 1 -->
+                <label><input type="radio" name="mentor" value="Siti"><div class="card-ui mentor-card">
+                    <img src="Saras.jpg" alt="Mentor">
+                    <strong>Saras Eveline</strong><br>
+                    <small>S3 Oxford, Active Global Riset.</small>
+                </div></label>
+                <!-- Cowo 2 -->
+                <label><input type="radio" name="mentor" value="Rian"><div class="card-ui mentor-card">
+                    <img src="Hanlo.jpg" alt="Mentor">
+                    <strong>Hanlo palo</strong><br>
+                    <small>Fulbright Scholar, TOEFL/IELTS Expert.</small>
+                </div></label>
+                <!-- Cewe 2 -->
+                <label><input type="radio" name="mentor" value="Dewi"><div class="card-ui mentor-card">
+                    <img src="Maya.jpg" alt="Mentor">
+                    <strong>Maya Nadhifa</strong><br>
+                    <small>Alumni Sorbonne, Ahli Budaya & Bahasa.</small>
+                </div></label>
+            </div>
+        </div>
+
+        <!-- 4. PAKET -->
+        <div class="section">
+            <h2>4. Pilih Paket Belajar</h2>
+            <div class="grid-3">
+                <label><input type="radio" name="package" value="Silver" required><div class="card-ui">
+                    <strong>Silver</strong><hr>2,5 Bulan<br><strong>Rp 15.000.000</strong>
+                </div></label>
+                <label><input type="radio" name="package" value="Gold"><div class="card-ui">
+                    <strong>Gold</strong><hr>4 Bulan<br><strong>Rp 35.000.000</strong>
+                </div></label>
+                <label><input type="radio" name="package" value="Platinum"><div class="card-ui">
+                    <strong>Platinum</strong><hr>6 Bulan<br><strong>Rp 50.000.000</strong>
+                </div></label>
+            </div>
+        </div>
+
+        <button type="button" class="btn-pay" onclick="handlePayment()">Konfirmasi Pemesanan & Bayar</button>
+
+    </form>
+            </div>
+
+    <script>
+    // Ambil nama program dari URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const program = urlParams.get('program') || 'Unggulan';
+    document.getElementById('headline').innerText = "Pendaftaran " + program + " Program";
+
+    // Munculkan pilihan jam setelah pilih hari
+    document.getElementById('daySelect').addEventListener('change', function() {
+        document.getElementById('timeContainer').style.display = this.value ? 'block' : 'none';
+    });
+
+    function handlePayment() {
+        const form = document.getElementById('masterForm');
+        if(form.checkValidity()) {
+            alert("Memproses Pembayaran... Mohon tunggu.");
+            setTimeout(() => {
+                document.body.innerHTML = `
+                <div style="text-align:center; padding:100px; color:#0056b3;">
+                    <h1 style="font-size:50px;">Yaay!</h1>
+                    <p style="font-size:24px;">Terimakasih sudah bergabung dengan LinguaLearn global community, semoga menyenangkan!</p>
+                    <br>
+                    <button onclick="window.location.href='Linglung.html'" style="padding:10px 20px; cursor:pointer;">Kembali ke Beranda</button>
+                </div>`;
+            }, 2000);
+        } else {
+            alert("Mohon lengkapi semua pilihan (Biodata, Waktu, Mentor, dan Paket) sebelum membayar.");
+        }
+    }
+</script>
+    

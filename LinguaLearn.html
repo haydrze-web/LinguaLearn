@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LinguaLearn</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f5f7fa;
+}
+
+/* NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.nav-left {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: #4f46e5;
+}
+
+.dashboard {
+    font-size: 16px;
+    color: #555;
+    cursor: pointer;
+}
+
+.sub-text {
+    font-size: 13px;
+    color: #888;
+}
+
+/* RIGHT NAV */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-right a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+}
+
+.search-box {
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.login-btn {
+    background: #4f46e5;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 6px;
+    text-decoration: none;
+}
+
+/* HERO */
+.hero {
+    text-align: center;
+    padding: 80px 20px;
+    background: #4f46e5;
+    color: white;
+}
+
+.hero h1 {
+    font-size: 36px;
+}
+
+.hero p {
+    margin-top: 10px;
+}
+
+/* BUTTON */
+.btn {
+    margin-top: 20px;
+    display: inline-block;
+    padding: 12px 20px;
+    background: white;
+    color: #4f46e5;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* SECTION */
+section {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    width: 250px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* FOOTER */
+footer {
+    background: #111;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+
+    <div class="nav-left">
+        <div class="logo-row">
+            <div class="logo">LinguaLearn</div>
+            <div class="dashboard">Dashboard</div>
+        </div>
+        <div class="sub-text">Learning Program</div>
+    </div>
+
+    <div class="nav-right">
+        <input type="text" placeholder="Search..." class="search-box">
+        <a href="#">About us</a>
+        <a href="#">Achievement</a>
+        <a href="#">Contact</a>
+        <a href="#">Login</a>
+        <a href="#" class="login-btn">Sign Up</a>
+    </div>
+
+</div>
+
+<!-- HERO -->
+<div class="hero">
+    <h1>Belajar Bahasa Asing Tanpa Bingung</h1>
+    <p>Platform yang membantu kamu menemukan cara belajar paling efektif</p>
+    <a href="#" class="btn">Mulai Sekarang</a>
+</div>
+
+<!-- TUJUAN -->
+<section>
+    <h2>Kenapa Kami Ada?</h2>
+    <p>
+        Banyak orang gagal belajar bahasa asing bukan karena tidak mampu,
+        tapi karena metode yang tidak cocok. Kami hadir untuk memberikan
+        pengalaman belajar yang dipersonalisasi.
+    </p>
+</section>
+
+<!-- KELAS -->
+<section>
+    <h2>Pilih Cara Belajarmu</h2>
+    <div class="cards">
+        <div class="card">
+            <h3>Privat Class</h3>
+            <p>Belajar 1-on-1 dengan mentor, fleksibel dan fokus.</p>
+        </div>
+        <div class="card">
+            <h3>Public Class</h3>
+            <p>Belajar bersama grup kecil, lebih interaktif.</p>
+        </div>
+    </div>
+</section>
+
+<!-- MENTOR -->
+<section>
+    <h2>Pilih Mentor Sesuai Gayamu</h2>
+    <p>Mau santai, serius, atau interaktif? Kamu yang tentukan.</p>
+</section>
+
+<!-- FITUR -->
+<section>
+    <h2>Fitur Unggulan</h2>
+    <div class="cards">
+        <div class="card">
+            <h3>Smart Recommendation</h3>
+            <p>Rekomendasi kelas sesuai kebutuhanmu.</p>
+        </div>
+        <div class="card">
+            <h3>Progress Tracker</h3>
+            <p>Pantau perkembangan belajar.</p>
+        </div>
+        <div class="card">
+            <h3>Trial Gratis</h3>
+            <p>Coba dulu sebelum mulai.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ACHIEVEMENT -->
+<section>
+    <h2>Our Achievement</h2>
+    <p>Dipercaya oleh ratusan siswa dengan hasil nyata.</p>
+</section>
+
+<!-- CTA -->
+<section>
+    <h2>Siap Mulai?</h2>
+    <a href="#" class="btn">Coba Gratis Sekarang</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>© 2026 LinguaLearn</p>
+</footer>
+
+</body>
+</html>
